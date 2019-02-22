@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
-use App\Trip;
+use App\;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Hashing\BcryptHasher;
 class ScheduleController extends Controller

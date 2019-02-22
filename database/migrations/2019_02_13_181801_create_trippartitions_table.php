@@ -16,7 +16,7 @@ class CreateTrippartitionsTable extends Migration
         Schema::create('trippartitions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user');
-            $table->string('trtip_id');
+            $table->string('trip_id');
             $table->integer('rating');
             $table->string('status');
             $table->timestamps();

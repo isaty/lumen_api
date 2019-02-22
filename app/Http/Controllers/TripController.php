@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\Trip;
 use App\User;
+use DB;
+use App\Checkpoints;
 use Illuminate\Http\Request;
 use Illuminate\Hashing\BcryptHasher;
 class TripController extends Controller{
@@ -25,8 +27,18 @@ public function create(Request $request)
 	$api_token=$request->api_token;
 	if(User::where('api_token','=',$api_token)->where('type','=','trip organiser')->exists())
 	{
-		$trip=Trip::create($request->all());
-		return response($request,200);
+		Trip::create($request->all());
+     	Checkpoints::create([
+     		'trip_id'=>$request->trip_id,
+     		'checkpoint_no'=>'source',
+     		'checkpoint'=>$request->source
+     	]);
+     	Checkpoints::create([
+     		'trip_id'=>$request->trip_id,
+     		'checkpoint_no'=>'destination',
+     		'checkpoint'=>$request->destination
+     	]);
+	return response($request,200);
 	}
 	return response("YOU DON'T HAVE PROPER PERMISSION",401);
 }

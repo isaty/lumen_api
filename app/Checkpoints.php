@@ -12,6 +12,7 @@ class Checkpoints extends Model implements AuthenticatableContract, Authorizable
 {
     use Authenticatable, Authorizable;
 
+    protected $table = "checkpoints";
     /**
      * The attributes that are mass assignable.
      *
