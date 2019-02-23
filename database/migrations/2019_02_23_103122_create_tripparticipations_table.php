@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTrippartitionsTable extends Migration
+class CreateTripparticipationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTrippartitionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('trippartitions', function (Blueprint $table) {
+        Schema::create('tripparticipations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user');
             $table->string('trip_id');
@@ -30,6 +30,6 @@ class CreateTrippartitionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trippartitions');
+        Schema::dropIfExists('tripparticipations');
     }
 }
