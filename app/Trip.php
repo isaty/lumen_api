@@ -11,7 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class Trip extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
-     
+     //for aws server
      protected $table="create_trips";
      /**
      * The attributes that are mass assignable.
