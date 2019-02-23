@@ -25,7 +25,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('triporganiser',['uses' => 'TripController@create']);
     $router->delete('triporganiser/{id}',['uses' => 'TripController@delete']);
     $router->put('triporganiser/{id}',['uses' => 'TripController@modify']);
-    $router->get('tripparticipation',['uses'=>'Tripparticipation@search'])
+    $router->get('tripparticipation',['uses'=>'Tripparticipation@search']);
     $router->post('tripparticipation',['uses' => 'TripparticipationController@create']);
     $router->delete('tripparticipation/{id}',['uses' => 'TpparticipationController@delete']);
     });
