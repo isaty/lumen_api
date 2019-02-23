@@ -19,7 +19,8 @@ class Trip extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'source', 'destination','trip_id','trip_organiser','max_acc','cur_acc','status','rating'
+        //'source', 'destination','trip_id','trip_organiser','max_acc','cur_acc','status','rating'
+         'trip_id', 'trip_org_email','trip_org_name', 'source', 'destination', 'max_accomodation' , 'current_accomodation', 'status', 'rating_of_trip'
         ];
 
     /**
