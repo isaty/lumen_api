@@ -53,7 +53,7 @@ class UserController extends Controller
     }
 
     public function login(Request $request)
-    {
+    { $email=$request->email;
       $password=$request->password;
       $user = User::where('email', '=', $email)->first();
       if(Hash::check($password, $user->password))
