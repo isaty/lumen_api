@@ -53,10 +53,11 @@ class UserController extends Controller
     }
 
     public function login(Request $request)
-    { $email=$request->email;
+    {
+      $email=$request->email;
       $password=$request->password;
-      $user = User::where('email', '=', $email)->first();
-      if(Hash::check($password, $user->password))
+      $user = User::where('email','=',$email)->value('password');
+      if(Hash::check($password, $user))
       {
         $api_token=str_random(6);
         $update=User::where('email','=',$email);
