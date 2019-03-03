@@ -12,7 +12,7 @@ class Trip extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable;
      //for aws server
-     protected $table="create_trips";
+     //protected $table="create_trips";
      /**
      * The attributes that are mass assignable.
      *
@@ -20,7 +20,7 @@ class Trip extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $fillable = [
         //'source', 'destination','trip_id','trip_organiser','max_acc','cur_acc','status','rating'
-         'trip_id', 'trip_org_email','trip_org_name', 'source', 'destination', 'max_accomodation' , 'current_accomodation', 'status', 'rating_of_trip'
+         'trip_id', 'trip_organiser', 'source', 'destination', 'max_acc' , 'current_acc', 'status', 'rating'
         ];
 
     /**

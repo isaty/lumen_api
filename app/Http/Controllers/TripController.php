@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 use App\Trip;
 use App\User;
-use DB;
 use App\Checkpoints;
 use Illuminate\Http\Request;
 use Illuminate\Hashing\BcryptHasher;
@@ -31,12 +30,12 @@ public function create(Request $request)
      	Checkpoints::create([
      		'trip_id'=>$request->trip_id,
      		'checkpoint_no'=>'source',
-     		'checkpoints'=>$request->source//earlier it was checkpoint
+     		'checkpoint'=>$request->source//earlier it was checkpoint
      	]);
      	Checkpoints::create([
      		'trip_id'=>$request->trip_id,
      		'checkpoint_no'=>'destination',
-     		'checkpoints'=>$request->destination//earlier it was checkpoint
+     		'checkpoint'=>$request->destination//earlier it was checkpoint
      	]);
 	return response($request,200);
 	}

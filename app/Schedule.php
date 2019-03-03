@@ -11,7 +11,8 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class Schedule extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
-
+    
+    protected $table="trip_schedules";
     /**
      * The attributes that are mass assignable.
      *

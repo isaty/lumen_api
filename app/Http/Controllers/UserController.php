@@ -10,7 +10,8 @@ class UserController extends Controller
             'showOneUser',
             'showAllUsers',
             'update',
-            'delete'
+            'delete',
+            'logout'
         ]]);
     }
     public function showAllUsers()
@@ -23,7 +24,7 @@ class UserController extends Controller
     }
     public function create(Request $request)
     {
-        $request['api_token']=str_random(6);
+        $request['api_token']="NULL";
         $request['password']=app('hash')->make($request['password']);
         $user = User::create($request->all());
         return response()->json($user, 201);
@@ -49,4 +50,22 @@ class UserController extends Controller
         return response()->json("YOU DON'T HAVE A PROPER PERMISSION",401);
     }
 
+    public function login(Request $request)
+    {
+      $user=$request->email;
+      $password=app('hash')->make($request['password']);
+      if($id=User::where('email','=',$user)->value('id')){
+      //User::update(['api_token'=>str_random(6)])->where('email','=',$user)->where('password','=',$password);
+      //$api_token=User::where('email','=',$user)->get('api_token');
+      //if($api_token)
+        //return response()->json($api_token);
+    return response()->json($id);
+       }
+       return response("user not registered");
+
+    }
+     public function logout(Request $request)
+    {
+     
+    }
 }

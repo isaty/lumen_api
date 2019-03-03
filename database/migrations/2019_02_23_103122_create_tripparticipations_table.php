@@ -17,8 +17,8 @@ class CreateTripparticipationsTable extends Migration
             $table->increments('id');
             $table->string('user');
             $table->string('trip_id');
-            $table->integer('rating');
-            $table->string('status');
+            $table->integer('rating')->default('0');
+            $table->string('status')->default('PENDING');
             $table->timestamps();
         });
     }

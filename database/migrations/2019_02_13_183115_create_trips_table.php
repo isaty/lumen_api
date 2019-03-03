@@ -17,12 +17,12 @@ class CreateTripsTable extends Migration
             $table->increments('id');
             $table->string('source');
             $table->string('destination');
-            $table->string('trip_id',5)->unique();
+            $table->string('trip_id',10)->unique();
             $table->string('trip_organiser');
-            $table->string('max_acc');
-            $table->string('min_acc');
-            $table->string('status');
-            $table->integer('rating');
+            $table->integer('max_acc');
+            $table->integer('current_acc')->default('0');
+            $table->string('status')->default('pending');
+            $table->integer('rating')->default('0');
             $table->timestamps();
         });
     }
