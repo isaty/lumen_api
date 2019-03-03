@@ -55,7 +55,7 @@ class UserController extends Controller
       $email=$request->email;
       $password=$request->password;
       $user = User::where('email', '=', $email)->first();
-      if(Hash::check($password, $user->password)){
+      if(BcryptHasher::check($password, $user->password)){
       //User::update(['api_token'=>str_random(6)])->where('email','=',$user)->where('password','=',$password);
       //$api_token=User::where('email','=',$user)->get('api_token');
       //if($api_token)
