@@ -30,12 +30,12 @@ public function create(Request $request)
      	Checkpoints::create([
      		'trip_id'=>$request->trip_id,
      		'checkpoint_no'=>'source',
-     		'checkpoint'=>$request->source//earlier it was checkpoint
+     		'checkpoints'=>$request->source//earlier it was checkpoint
      	]);
      	Checkpoints::create([
      		'trip_id'=>$request->trip_id,
      		'checkpoint_no'=>'destination',
-     		'checkpoint'=>$request->destination//earlier it was checkpoint
+     		'checkpoints'=>$request->destination//earlier it was checkpoint
      	]);
 	return response($request,200);
 	}

@@ -20,7 +20,7 @@ class Checkpoints extends Model implements AuthenticatableContract, Authorizable
      * @var array
      */
     protected $fillable = [
-         'trip_id', 'checkpoint_no', 'checkpoint', 'activity', 'visiting_status',
+         'trip_id', 'checkpoint_no', 'checkpoints', 'activity', 'visiting_status',
         ];
 
     /**
