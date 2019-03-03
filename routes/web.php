@@ -22,6 +22,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('user', ['uses' => 'UserController@create']);
     $router->delete('user/{id}', ['uses' => 'UserController@delete']);
     $router->put('login', ['uses' => 'UserController@login']);
+     $router->put('logout', ['uses' => 'UserController@logout']);
     
     $router->get('source/{source}/destination/{destination}', ['uses' => 'TripController@search']);
     $router->post('triporganiser',['uses' => 'TripController@create']);
