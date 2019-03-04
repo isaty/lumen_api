@@ -25,7 +25,7 @@ class UserController extends Controller
     }
     public function create(Request $request)
     {
-        $request['api_token']='NULL';
+        $request['api_token']=null;
         $request['password']=app('hash')->make($request['password']);
         $user = User::create($request->all());
         return response()->json($user, 201);
@@ -57,7 +57,7 @@ class UserController extends Controller
       $email=$request->email;
       $password=$request->password;
       $user = User::where('email','=',$email)->first();
-      if(Hash::check($password, $user->password))
+      if(Hash::check($password, $user['password']))
       {
         $api_token=str_random(6);
         $update=User::where('email','=',$email);
@@ -65,13 +65,14 @@ class UserController extends Controller
         $api_token=User::where('email','=',$email)->value('api_token');
         return response()->json($api_token);
        }
-      return response()->json("user not registered");
+      return response()->json("you are logged in");
 
     }
     public function logout(Request $request)
     {
         $user=User::where('api_token','=',$request->api_token);
-        $user->update(['api_token'=>'NULL']);
+        // $email=User::where('api_token','=',$request->api_token)->get('email');
+        $user->update(['api_token'=>null]);
         return response()->json("you have been successfully logged out");
         
     }
