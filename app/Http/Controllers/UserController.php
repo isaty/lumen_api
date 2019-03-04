@@ -65,7 +65,7 @@ class UserController extends Controller
         $api_token=User::where('email','=',$email)->value('api_token');
         return response()->json($api_token);
        }
-      return response()->json("you are logged in");
+      return response()->json("no user found");
 
     }
     public function logout(Request $request)
