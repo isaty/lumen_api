@@ -11,8 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class Checkpoints extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
-
-    protected $table = "checkpoints";
+    protected $table="checkpoint";
     
     /**
      * The attributes that are mass assignable.
