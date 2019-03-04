@@ -59,13 +59,13 @@ class UserController extends Controller
       $user = User::where('email','=',$email)->first();
       if(Hash::check($password, $user['password']))
       {
-        // $api_token=str_random(6);
-        // $update=User::where('email','=',$email);
-        // $update->update(['api_token'=>str_random(6)]);
-        // $api_token=User::where('email','=',$email)->value('api_token');
-        // return response()->json($api_token);
+        $api_token=str_random(6);
+        $update=User::where('email','=',$email);
+        $update->update(['api_token'=>str_random(6)]);
+        $api_token=User::where('email','=',$email)->value('api_token');
+        return response()->json($api_token);
        }
-      return response()->json($user);
+      return response()->json("no user found");
 
     }
     public function logout(Request $request)
